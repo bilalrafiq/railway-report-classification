@@ -11,6 +11,25 @@ The final held-out cohort contains 8,935 cases dated 2021–2025 as available in
 
 A repository is supporting reproducibility evidence, not proof of scientific validity or journal acceptance.
 
+## Repository contents
+
+| Path | Contents |
+|---|---|
+| `src/` | Preparation, models, and evaluation |
+| `results/` | Predictions, metrics, protocols, and splits |
+| `data/` | Cohort candidates and snapshot metadata |
+| `environment/` | Collected package versions |
+| `scripts/` | Saved-result verification |
+
+## Raw snapshot setup
+
+The CSV/JSONL files are already extracted. No restoration script is required.
+
+```bash
+mkdir -p data/raw
+unzip -n datanew_snapshot.zip -d data/raw
+```
+
 ## Verify saved results without training
 Install numpy and scikit-learn, then run:
 
@@ -38,15 +57,12 @@ python src/final_evaluate.py
 Each command requires a new output directory. The evaluator verifies internal consistency of a reproduction against its own validation records before testing. It does not require a new stochastic training run to equal the authors' scores. It preserves all three seeds and evaluates every comparator. Published exact predictions remain in results/.
 
 ## Data lineage
-Included cohort candidates and duplicate groups permit rebuilding the exact input split from the raw snapshot. Source scripts for identity grouping, labels, input audit and preprocessing are included under src/railway_*. Their command-line help describes inputs. These audit stages document assumptions and exclusions and are distinct from the prediction-verification path. Results/development_baselines/split_manifest.csv records the published partition assignment.
+Included cohort candidates and duplicate groups permit rebuilding the exact input split from the raw snapshot. Source scripts for identity grouping, labels, input audit and preprocessing are included under src/railway_*. Their command-line help describes inputs. These audit stages document assumptions and exclusions and are distinct from the prediction-verification path. results/development_baselines/split_manifest.csv records the published partition assignment.
 
 ## Data and rights
-The official DOT Form 54 public-data portal is the upstream reference. The local snapshot was supplied by a coauthor; its original export query/date were not documented. Public availability of the source does not prove that every local field is unchanged. Verify provenance before releasing the raw snapshot. Keep the data snapshot separate from Git history and attach it to an immutable release or archive when its provenance is cleared.
+The official DOT Form 54 public-data portal is the upstream reference. The local snapshot was supplied by a coauthor; its original export query/date were not documented. Public availability of the source does not prove that every local field is unchanged. Verify provenance before releasing the raw snapshot. The raw snapshot is included as `datanew_snapshot.zip`. Keep the repository private until redistribution and licensing are settled.
 
 No blanket license is assigned to coauthor code or third-party data in this preparation. The authors must select the code license and confirm rights before claiming unrestricted reuse. Retain applicable third-party notices. A public repository without an explicit code license is not a complete open-source release.
 
 ## Citation and release
 The manuscript is not yet published; no paper DOI or acceptance is claimed. After publication, add the complete author-approved citation and paper DOI. Cite a tagged repository release and commit SHA; archive the release with a DOI if available. Do not insert a hypothetical URL into the manuscript. Record a release only after all files and the verification command are checked on GitHub.
-
-## Packed data files
-Large CSV/JSONL files are stored losslessly as .gz files. Run `python scripts/restore_data.py` before verification or training. The exact author-supplied raw snapshot is stored in private repository assets as numbered parts; this script verifies and reconstructs it. Keep the repository private until data redistribution and code licensing are settled.
