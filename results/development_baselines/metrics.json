@@ -1,0 +1,224 @@
+{
+  "majority": {
+    "accuracy": 0.40578539107950873,
+    "macro_f1": 0.1924359121738131,
+    "report": {
+      "0": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 2556.0
+      },
+      "1": {
+        "precision": 0.40578539107950873,
+        "recall": 1.0,
+        "f1-score": 0.5773077365214393,
+        "support": 2511.0
+      },
+      "2": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 1121.0
+      },
+      "accuracy": 0.40578539107950873,
+      "macro avg": {
+        "precision": 0.1352617970265029,
+        "recall": 0.3333333333333333,
+        "f1-score": 0.1924359121738131,
+        "support": 6188.0
+      },
+      "weighted avg": {
+        "precision": 0.16466178361354983,
+        "recall": 0.40578539107950873,
+        "f1-score": 0.23426304563757824,
+        "support": 6188.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        0,
+        2556,
+        0
+      ],
+      [
+        0,
+        2511,
+        0
+      ],
+      [
+        0,
+        1121,
+        0
+      ]
+    ],
+    "warnings": []
+  },
+  "structured_logistic": {
+    "accuracy": 0.45475113122171945,
+    "macro_f1": 0.41053537936186846,
+    "report": {
+      "0": {
+        "precision": 0.5523809523809524,
+        "recall": 0.24960876369327073,
+        "f1-score": 0.3438426300188629,
+        "support": 2556.0
+      },
+      "1": {
+        "precision": 0.447426201512564,
+        "recall": 0.7303863002787734,
+        "f1-score": 0.5549167927382753,
+        "support": 2511.0
+      },
+      "2": {
+        "precision": 0.36616702355460384,
+        "recall": 0.3050847457627119,
+        "f1-score": 0.3328467153284672,
+        "support": 1121.0
+      },
+      "accuracy": 0.45475113122171945,
+      "macro avg": {
+        "precision": 0.45532472581604005,
+        "recall": 0.428359936578252,
+        "f1-score": 0.41053537936186846,
+        "support": 6188.0
+      },
+      "weighted avg": {
+        "precision": 0.47605787648488584,
+        "recall": 0.45475113122171945,
+        "f1-score": 0.4275014539071162,
+        "support": 6188.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        638,
+        1603,
+        315
+      ],
+      [
+        400,
+        1834,
+        277
+      ],
+      [
+        117,
+        662,
+        342
+      ]
+    ],
+    "warnings": []
+  },
+  "text_tfidf_logistic": {
+    "accuracy": 0.6982870071105365,
+    "macro_f1": 0.6641079015095956,
+    "report": {
+      "0": {
+        "precision": 0.7674245247856877,
+        "recall": 0.8055555555555556,
+        "f1-score": 0.786027867913724,
+        "support": 2556.0
+      },
+      "1": {
+        "precision": 0.6408476434051882,
+        "recall": 0.6985264834727201,
+        "f1-score": 0.6684451219512195,
+        "support": 2511.0
+      },
+      "2": {
+        "precision": 0.6614583333333334,
+        "recall": 0.45316681534344333,
+        "f1-score": 0.5378507146638434,
+        "support": 1121.0
+      },
+      "accuracy": 0.6982870071105365,
+      "macro avg": {
+        "precision": 0.6899101671747364,
+        "recall": 0.652416284790573,
+        "f1-score": 0.6641079015095956,
+        "support": 6188.0
+      },
+      "weighted avg": {
+        "precision": 0.6968649498399018,
+        "recall": 0.6982870071105365,
+        "f1-score": 0.6933554593964383,
+        "support": 6188.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        2059,
+        452,
+        45
+      ],
+      [
+        542,
+        1754,
+        215
+      ],
+      [
+        82,
+        531,
+        508
+      ]
+    ],
+    "warnings": []
+  },
+  "feature_fusion_logistic": {
+    "accuracy": 0.7063671622495152,
+    "macro_f1": 0.6773539765889082,
+    "report": {
+      "0": {
+        "precision": 0.7715144682450207,
+        "recall": 0.80320813771518,
+        "f1-score": 0.7870423615104467,
+        "support": 2556.0
+      },
+      "1": {
+        "precision": 0.652752124122645,
+        "recall": 0.7037037037037037,
+        "f1-score": 0.677270985051744,
+        "support": 2511.0
+      },
+      "2": {
+        "precision": 0.6719512195121952,
+        "recall": 0.4915254237288136,
+        "f1-score": 0.5677485832045338,
+        "support": 1121.0
+      },
+      "accuracy": 0.7063671622495152,
+      "macro avg": {
+        "precision": 0.6987392706266203,
+        "recall": 0.6661457550492323,
+        "f1-score": 0.6773539765889082,
+        "support": 6188.0
+      },
+      "weighted avg": {
+        "precision": 0.7052858567516815,
+        "recall": 0.7063671622495152,
+        "f1-score": 0.7027721204359911,
+        "support": 6188.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        2053,
+        444,
+        59
+      ],
+      [
+        534,
+        1767,
+        210
+      ],
+      [
+        74,
+        496,
+        551
+      ]
+    ],
+    "warnings": [
+      "lbfgs failed to converge (status=1):\nSTOP: TOTAL NO. of ITERATIONS REACHED LIMIT.\n\nIncrease the number of iterations (max_iter) or scale the data as shown in:\n    https://scikit-learn.org/stable/modules/preprocessing.html\nPlease also refer to the documentation for alternative solver options:\n    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression"
+    ]
+  }
+}

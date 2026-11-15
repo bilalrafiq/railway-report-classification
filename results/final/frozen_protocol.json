@@ -1,0 +1,34 @@
+{
+  "status": "FROZEN_BEFORE_TEST_PREDICTIONS",
+  "target": "v6 adapted nominal-CNY composite; not official severity grades",
+  "interpretation": "Retrospective adapted-index classification; not official grades or prospective prediction",
+  "primary_metric": "macro_f1",
+  "seeds": [
+    62,
+    63,
+    64
+  ],
+  "selection": "Existing maximum validation macro-F1 checkpoint per model and seed",
+  "evaluation_years": "2021-2025 as available in the supplied extract; not necessarily complete 2025",
+  "expected_cases": 8935,
+  "validation_replay": false,
+  "checkpoint_hashes": {
+    "62/text": "771deb142e5280995f0e8c771741b89ff5935bf9a9c6634d474210d24fabad97",
+    "62/concat": "d3d3887090470e4c3c6371601176c9f1dfe2462385e4e362212cb66921ca78b6",
+    "62/gated": "306fb41613679de3c5c3f67fecc4622d19b419d74fe4ab610fced47a918b8112",
+    "63/text": "693e06523acc5fe45e42ac419407eba058ee9f3ba51cb78980dfb87bcd0b18fb",
+    "63/concat": "4d1dc2b28120e50239200ebeddbace54cbd292a3f41672ddff4fe2c5c5c845cc",
+    "63/gated": "5f938090cf8f0d2d7d8f477b1d0d3e1409145d6d52e0ca5fe054538bf37f4f87",
+    "64/text": "80f482b90b4a337effaa6bf8619bb2a4db0b378cc44f8348216970b3ca952871",
+    "64/concat": "d79279fe91aa8181a88c48a540983539c52f260fe86803c7a571061b03b720b3",
+    "64/gated": "76f064761f6dce9660e947e91a4fe7983f72ad7a578bcad09249a51ac860612b",
+    "majority": "1d35e971b26a50a0a104afe28c317f0c23e9ddec004bddbd99a4ace9e24153d8",
+    "structured_logistic": "36f6cc0d922fc2eb5fa99a6db11e5872d3cda11572f62e448a20ed453dc73417",
+    "text_tfidf_logistic": "1474b2ae33db87058eb6fece90dfa5342e8003a29f25a88b8be95590795ba628",
+    "feature_fusion_logistic": "b0f26a12fddf9cfb2858343e4368ef00cc2490f0d6d8e176451efd1db861c9fd"
+  },
+  "split_manifest_sha256": "85a49bafbbbc80d7cab3b78a4752bfe14cca103d1a029086a9e4b69a694e853d",
+  "source_protocol_sha256": "b304cdaa631a66317968d81beca44d779a3607301eb148f7b95bd16ce562df71",
+  "script_sha256": "62e6a2964aba2a2b1b3c2b2cb6b5f7166a1dfc77117d67658f67a8ded96a2327",
+  "no_post_test_tuning": true
+}

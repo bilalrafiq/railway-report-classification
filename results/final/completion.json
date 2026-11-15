@@ -1,0 +1,8 @@
+{
+  "status": "FINAL_EVALUATION_COMPLETE",
+  "test_evaluated": true,
+  "models": 13,
+  "cases": 8935,
+  "metrics_sha256": "b1ec77b0c126e970e99b3168fef67f767e97218ea822d3987338d054559ae384",
+  "script_sha256": "62e6a2964aba2a2b1b3c2b2cb6b5f7166a1dfc77117d67658f67a8ded96a2327"
+}

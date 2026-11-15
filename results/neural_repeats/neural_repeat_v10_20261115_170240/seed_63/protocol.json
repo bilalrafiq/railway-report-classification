@@ -1,0 +1,45 @@
+{
+  "status": "PROVISIONAL_DEVELOPMENT",
+  "test_evaluated": false,
+  "seed": 63,
+  "epochs": 5,
+  "batch_size": 8,
+  "max_length": 256,
+  "learning_rate": 0.0001,
+  "weight_decay": 0.01,
+  "loss": "unweighted cross entropy, no smoothing; revised common comparison setting",
+  "trainable_plm_layers": [
+    10,
+    11
+  ],
+  "numeric_preprocessing": "train median and mean/std; all four retained; no missing indicators",
+  "target": "v6 adapted nominal-CNY composite; not official severity grades",
+  "source_hashes": {
+    "train.jsonl": "3801f441b28fc6495668ed0f531ff8305b8bbea461388508907b4b3a9f08f4ad",
+    "validation.jsonl": "92fbdefb6083e61975f0ac3c4c6ec9a230fad78db17fa95441cba85e65b06f20",
+    "protocol.json": "b304cdaa631a66317968d81beca44d779a3607301eb148f7b95bd16ce562df71"
+  },
+  "original_hashes": {
+    "model.py": "b894b25efdcde3df7367be18298f3da4b90103d767273fdc08ddb62bf8f4ce98",
+    "model_zoo.py": "f808d521d08d5b2919b2bdff2f5141598ad23b3049a70f22880b180ee9ccdcba"
+  },
+  "pretrained_hashes": {
+    "config.json": "ef0185e2aae6e06c5f105a285006952c340e20c7dbf43c86ec82601b13fc45e9",
+    "SHA256SUMS.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "merges.txt": "1ce1664773c50f3e0cc8842619a93edc4624525b728b188a9e0be33b7726adc5",
+    "download_provenance.json": "108dfbffcfba7f057e3739b5488b27d39f7018126dcc0801ca4715eb917d4975",
+    "vocab.json": "9e7f63c2d15d666b52e21d250d2e513b87c9b713cfa6987a82ed89e5e6e50655",
+    "model.safetensors": "5bde1d28afb363d0103324efeb5afc8b2b397fe5e04beabb9b1ef355255ade81",
+    "tokenizer_config.json": "994f46754c5bf4014f1aa92d34b1374319c3a6b3f702105cd5b742beaecd18ce",
+    "tokenizer.json": "847bbeab6174d66a88898f729d52fa8d355fafe1bea101cf960dd404581df70e"
+  },
+  "torch_version": "2.0.0+cu118",
+  "device": "cuda",
+  "script_sha256": "ee4ba617732c27510766febd0ec9907f5cdcf7aa23417f3387147d9762274f83",
+  "limitations": [
+    "Development target remains adapted, not official grades",
+    "Text-only head uses zero structural half to match classifier dimensions",
+    "Smoke does not estimate predictive performance",
+    "No claim of bitwise deterministic GPU training"
+  ]
+}

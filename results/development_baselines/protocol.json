@@ -1,0 +1,76 @@
+{
+  "status": "PROVISIONAL_DEVELOPMENT_ONLY",
+  "seed": 62,
+  "target": "v6 adapted nominal-CNY composite; not official severity grades",
+  "train_years": "1982-2017",
+  "validation_years": "2018-2020",
+  "reserved_years": "2021-2025; no evaluation",
+  "source_rule": "v6 longest cleaned narrative source row; all structured values from that same report",
+  "duplicate_rule": "v7 all-report exact normalized links plus all nonempty selected texts; transitive components; exclude earlier partitions, never move future records backwards",
+  "numeric_features": [
+    "TEMP",
+    "TRNSPD",
+    "TONS",
+    "CARS"
+  ],
+  "categorical_features": [
+    "STATE",
+    "VISIBLTY",
+    "WEATHER",
+    "TRKCLAS",
+    "TYPTRK",
+    "PASSTRN",
+    "TRNDIR"
+  ],
+  "selection": "label-independent SHA256(seed|incident_id) ranking within each partition",
+  "caps": {
+    "train": 1000000,
+    "validation": 1000000
+  },
+  "dispositions": {
+    "reserved_future": 8935,
+    "validation": 6188,
+    "train": 99784,
+    "excluded_earlier_duplicate": 9
+  },
+  "eligible_pool_counts": {
+    "train": 99784,
+    "validation": 6188
+  },
+  "selected_counts": {
+    "train": 99784,
+    "validation": 6188
+  },
+  "selected_class_counts": {
+    "train": {
+      "1": 43852,
+      "0": 31629,
+      "2": 24303
+    },
+    "validation": {
+      "1": 2511,
+      "0": 2556,
+      "2": 1121
+    }
+  },
+  "hashes": {
+    "raw": "9271f04027d907ae9c47d1de2d38a1b1ddf4eb64fcae177b9f62faa21be02e19",
+    "cohort": "0cac4a6348008bc10685d51c96cc48fc7046556af85762d6ed35ac2941ed3668",
+    "duplicates": "af643b06b994c92f411e434f35ce288795b1a36db10897a01edc30d01244f4be",
+    "script": "fd581d4162d12e0153fd6f7cc98b275330d6cab9e70c1998e0eb5765e2db09ab"
+  },
+  "versions": {
+    "python": "3.8.20",
+    "numpy": "1.24.4",
+    "pandas": "2.0.3",
+    "sklearn": "1.3.2"
+  },
+  "limitations": [
+    "Development target and cohort are provisional; exclusions may bias population",
+    "Narratives retain outcomes; this is retrospective report classification",
+    "Selected report is not a verified aggregate of every involved train",
+    "Unknown incident links and near-duplicate narratives may remain",
+    "Old zero-filled raw codes are not universally reinterpreted as missing",
+    "No hyperparameter search, statistical comparison or final test evaluation"
+  ]
+}

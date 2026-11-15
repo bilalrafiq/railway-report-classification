@@ -1,0 +1,8 @@
+{
+  "file": "datanew.csv",
+  "sha256": "9271f04027d907ae9c47d1de2d38a1b1ddf4eb64fcae177b9f62faa21be02e19",
+  "bytes": 158327293,
+  "provenance": "Author-supplied FRA-derived snapshot; original retrieval date and query not documented",
+  "public_source": "https://data.transportation.gov/Railroads/Railroad-Equipment-Accident-Incident-Source-Data-F/aqxq-n5hy",
+  "redistribution_note": "Do not assert exact identity to the current live source. Confirm provenance and any local additions before public release."
+}

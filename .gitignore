@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.env
+.venv/
+*.pt
+*.pth
+*.safetensors
+*.joblib
+pretrained_models/
+data/raw/
+work/
+release_assets/

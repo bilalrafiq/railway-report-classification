@@ -1,0 +1,101 @@
+{
+  "status": "CONVERGENCE_RETRY_COMPLETE",
+  "test_evaluated": false,
+  "macro_f1": 0.677152745385048,
+  "accuracy": 0.7060439560439561,
+  "confusion_matrix": [
+    [
+      2052,
+      446,
+      58
+    ],
+    [
+      535,
+      1766,
+      210
+    ],
+    [
+      74,
+      496,
+      551
+    ]
+  ],
+  "classification_report": {
+    "0": {
+      "precision": 0.7711386696730552,
+      "recall": 0.8028169014084507,
+      "f1-score": 0.7866589994249569,
+      "support": 2556.0
+    },
+    "1": {
+      "precision": 0.6521418020679468,
+      "recall": 0.703305455993628,
+      "f1-score": 0.6767579996167848,
+      "support": 2511.0
+    },
+    "2": {
+      "precision": 0.6727716727716728,
+      "recall": 0.4915254237288136,
+      "f1-score": 0.5680412371134022,
+      "support": 1121.0
+    },
+    "accuracy": 0.7060439560439561,
+    "macro avg": {
+      "precision": 0.6986840481708917,
+      "recall": 0.6658825937102975,
+      "f1-score": 0.677152745385048,
+      "support": 6188.0
+    },
+    "weighted avg": {
+      "precision": 0.7050316014631527,
+      "recall": 0.7060439560439561,
+      "f1-score": 0.702458624171309,
+      "support": 6188.0
+    }
+  },
+  "iterations_this_fit": [
+    239
+  ],
+  "warnings": [],
+  "source_hashes": {
+    "train.jsonl": "3801f441b28fc6495668ed0f531ff8305b8bbea461388508907b4b3a9f08f4ad",
+    "validation.jsonl": "92fbdefb6083e61975f0ac3c4c6ec9a230fad78db17fa95441cba85e65b06f20",
+    "protocol.json": "b304cdaa631a66317968d81beca44d779a3607301eb148f7b95bd16ce562df71",
+    "feature_fusion_bundle.joblib": "982275a3bf20a04dbbc8198874c6b6c8dbb75a6ddefa8c1c65d07935ebbf939a"
+  },
+  "original_parameters": {
+    "C": 1.0,
+    "class_weight": null,
+    "dual": false,
+    "fit_intercept": true,
+    "intercept_scaling": 1,
+    "l1_ratio": null,
+    "max_iter": 1000,
+    "multi_class": "auto",
+    "n_jobs": null,
+    "penalty": "l2",
+    "random_state": 62,
+    "solver": "lbfgs",
+    "tol": 0.0001,
+    "verbose": 0,
+    "warm_start": false
+  },
+  "retry_parameters": {
+    "C": 1.0,
+    "class_weight": null,
+    "dual": false,
+    "fit_intercept": true,
+    "intercept_scaling": 1,
+    "l1_ratio": null,
+    "max_iter": 5000,
+    "multi_class": "auto",
+    "n_jobs": null,
+    "penalty": "l2",
+    "random_state": 62,
+    "solver": "lbfgs",
+    "tol": 0.0001,
+    "verbose": 0,
+    "warm_start": true
+  },
+  "script_sha256": "5fe989f8e3298dc93047bce4d1983eda4767d40ccda9b786dd3491f62006c04a"
+}

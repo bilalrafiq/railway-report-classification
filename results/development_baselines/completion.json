@@ -1,0 +1,8 @@
+{
+  "status": "DEVELOPMENT_RUN_COMPLETE",
+  "test_evaluated": false,
+  "metrics_sha256": "1cacd940791ea14a23947463686cb85d0b352edd5de0d1124d8efd701b3cf529",
+  "protocol_sha256": "b304cdaa631a66317968d81beca44d779a3607301eb148f7b95bd16ce562df71",
+  "train_sha256": "3801f441b28fc6495668ed0f531ff8305b8bbea461388508907b4b3a9f08f4ad",
+  "validation_sha256": "92fbdefb6083e61975f0ac3c4c6ec9a230fad78db17fa95441cba85e65b06f20"
+}
