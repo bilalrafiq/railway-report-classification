@@ -1,0 +1,13 @@
+{
+  "resamples": 2000,
+  "rng_seed": 62,
+  "components": 8928,
+  "cases": 8935,
+  "contrast": "mean gated F1 across three fixed seeds minus mean text F1 across three fixed seeds",
+  "point_difference": 0.0007765270497128718,
+  "percentile_95_interval": [
+    -0.003435896391010837,
+    0.004802869280244427
+  ],
+  "scope": "Post-test analysis conditional on fitted models. Does not quantify training uncertainty or establish equivalence."
+}

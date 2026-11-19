@@ -1,0 +1,40 @@
+{
+  "status": "DESCRIPTIVE_POST_TEST_AUDIT_COMPLETE",
+  "records": 114916,
+  "label_reconstruction_mismatches": 0,
+  "training_performed": false,
+  "predictions_changed": false,
+  "patterns": {
+    "casualty_mention": "\\b(?:kill(?:ed)?|fatal(?:ity|ities)?|death(?:s)?|died|injur\\w*|casualt\\w*)\\b",
+    "damage_mention": "\\b(?:damag\\w*|dollars?|cost\\w*)\\b|\\$",
+    "derailment_mention": "\\bderail\\w*\\b"
+  },
+  "limitations": [
+    "Keyword screening includes negations and non-outcome contexts; no manual validation performed.",
+    "No keyword match does not establish absence of outcome information.",
+    "Subgroup scores are post-test descriptive comparisons and are confounded by class composition and other differences.",
+    "Labels reconstructed using selected-row outcome fields and provided incident-level lower derailment bounds; this does not independently validate identity grouping, source fields, or regulatory validity."
+  ],
+  "hashes": {
+    "raw": "9271f04027d907ae9c47d1de2d38a1b1ddf4eb64fcae177b9f62faa21be02e19",
+    "cohort": "0cac4a6348008bc10685d51c96cc48fc7046556af85762d6ed35ac2941ed3668",
+    "split": "85a49bafbbbc80d7cab3b78a4752bfe14cca103d1a029086a9e4b69a694e853d",
+    "rates": "22e9c89ec1480f3954d97de40adac228b5f0082ea233457923ab4ef3f37604fb",
+    "script": "f75c9ae50cf864328dac409e1ab9ca6dec6ed24d2dc8c4735a613be09b9efd5b",
+    "predictions": {
+      "concat_seed62_predictions.csv": "f63328e3e8ee145912a74463ed225a8bf7acfda5c69b0040df1208fc98b63a47",
+      "concat_seed63_predictions.csv": "069a65795cbd190c6879a0d8a134aba5e600e56f55a747563e285f98faf8e59d",
+      "concat_seed64_predictions.csv": "5f575d2831cae16e56a5639e7edd9a6dee1bc9bc98017beec750afaa556f0484",
+      "feature_fusion_logistic_predictions.csv": "6a1e5ef6facf824856e7fb6c597e7547a9e556080597e6a42950512c365f94b2",
+      "gated_seed62_predictions.csv": "9cfd4ef5c5bff34feba97cd2940a2afe7b5ae25f2280d35f1497200b49a18652",
+      "gated_seed63_predictions.csv": "fa0e87ec6cc856b3cfd5691b8a0fc86039008d905ad9f81d097a707d2f71b8e9",
+      "gated_seed64_predictions.csv": "8a6d985383bdaec499e68eeb3f405af8bd2a874d5e1883ea9d6c14c8e26c9c00",
+      "majority_predictions.csv": "c9a0659a995fae8ee3875490a7ec3101470ebe8b1165710a5a33dddab2fa1f85",
+      "structured_logistic_predictions.csv": "efbfe81d4f955a30e675de20c05c86b09ddcc9dc236cc6c3d2fbb7fb2baff53d",
+      "text_seed62_predictions.csv": "3898bc5cfa95b773e6881d4723bc144ef2c5ff29248c019f0b2dab71b8d6fdad",
+      "text_seed63_predictions.csv": "35abd070184955cdddb311350a335b14a61988075290760628b4102669e6baae",
+      "text_seed64_predictions.csv": "5bff7cc89e80820dc8cc94d5e288d61432d53150144ba4c703adcb9e5ffd981c",
+      "text_tfidf_logistic_predictions.csv": "7b198f74cd7c960361e4e1205f87bedcab6d2dc07aef53319a54a7718b92906c"
+    }
+  }
+}
