@@ -133,8 +133,8 @@ The root `Railway_GitHub_Ready.zip` is a preparation archive. Use the current re
 
 ## Attribution, citation, and licensing
 
-**Repository maintainer:** Bilal Rafique, PhD Scholar, Computer Science, Southwest Jiaotong University. Contact: bilalrafique@my.swjtu.edu.cn. [`AUTHORS.md`](AUTHORS.md) records affiliations and code attribution; [`CITATION.cff`](CITATION.cff) provides the current software citation. Manuscript author order and the complete paper citation require author agreement.
+**Repository maintainer:** Bilal Rafique, PhD Scholar, Computer Science, Southwest Jiaotong University. Contact: bilalrafique@my.swjtu.edu.cn. [`AUTHORS.md`](AUTHORS.md) records affiliations and code attribution; [`CITATION.cff`](CITATION.cff) provides the current software citation. Software attribution and citation are separate from the manuscript byline.
 
-The repository is publicly accessible. A software license has not yet been agreed, and the authors still need to confirm the data-redistribution status. No blanket code or data license is asserted here. Pretrained model weights are not redistributed in this repository.
+The project code is licensed under the [MIT License](LICENSE). This code license does not grant rights to raw data, pretrained models, or third-party material; any applicable third-party terms and existing author notices continue to apply. The authors still need to confirm the raw snapshot's provenance, any local additions, and redistribution permissions. Its export date and query remain undocumented. Pretrained model weights are not redistributed in this repository.
 
 When reporting a reproduction, record the exact commit and the data snapshot hash. The archived experiment and post-test analysis reviewed here are at commit `2e5f42c9429c92847fbe9b66b69cb61b562204bd`.

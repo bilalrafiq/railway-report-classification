@@ -6,7 +6,7 @@ Checked 24 November 2026 at experiment commit `2e5f42c9429c92847fbe9b66b69cb61b5
 
 - GitHub reports the repository as public.
 - All 103 tracked file blobs matched GitHub's hashes in the checked snapshot.
-- `AUTHORS.md` and `CITATION.cff` are present. The citation describes software rather than an approved paper byline.
+- `AUTHORS.md` and `CITATION.cff` are present. The citation describes software separately from the manuscript byline.
 - All thirteen final prediction files pass probability, identity, label and metric checks.
 - Both summary files reproduce byte-for-byte: `final_summary.csv` and `bootstrap.json`.
 - All five target-audit files reproduce byte-for-byte, including the incident-screen flags.
@@ -26,12 +26,14 @@ The accompanying update clarifies raw-data setup, replaces stale private-reposit
 
 Original predictions, metrics, protocols, raw data, split manifests, model equations and model settings are preserved. The script changes affect validation or diagnostic messages, rather than the training computation.
 
-## Remaining author decisions
+## Approved license update
 
-- No `LICENSE` file was present in the checked commit, and no software license has been agreed. This update does not assign one.
+No `LICENSE` file was present at the checked experiment commit. The authors have now approved the MIT License for the project code, and this update adds the root `LICENSE` file and records `license: MIT` in `CITATION.cff`. Existing author notices remain in place. The code license does not grant rights to raw data, pretrained models, or third-party material; applicable third-party terms continue to apply. No predictions, metrics, protocols, or model settings are changed by this license update.
+
+## Remaining author decisions
 - The raw snapshot ZIP is already tracked in the public repository. The authors should confirm its provenance, any local additions and redistribution permissions. Its export date and query remain undocumented.
-- Preserve existing software attribution. Complete the approved contributor list and any paper citation when those details are agreed.
-- A tagged release and archival DOI can be added after the release contents and licensing are settled. No release or DOI is invented here.
+- Preserve existing software attribution. Add a published-paper citation when bibliographic details become available; retain software attribution separately.
+- A tagged release and archival DOI can be added after the release contents and any outstanding data or third-party permissions are settled. No release or DOI is invented here.
 
 ## Scope
 

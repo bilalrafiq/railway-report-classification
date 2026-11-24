@@ -1,6 +1,7 @@
 cff-version: 1.2.0
 message: "Cite this software repository and specify the commit used. Manuscript citation details will be added after author approval."
 type: software
+license: MIT
 title: "Railway report classification: temporal reproducibility materials"
 authors:
   - family-names: Rafique

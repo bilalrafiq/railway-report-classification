@@ -17,8 +17,8 @@ The modules in `src/original_model/` were collected from the coauthor-supplied i
 
 ## Manuscript authorship
 
-This software record does not specify manuscript author order. The paper citation will be added after author approval.
+This file records software attribution separately from the manuscript byline. A published-paper citation can be added when bibliographic details become available.
 
 ## Licensing
 
-A code license has not yet been agreed. No blanket permission is granted for third-party code, pretrained models, or data.
+The project code is licensed under the [MIT License](LICENSE). Preserve existing author notices, including those in `src/original_model/`. This code license does not grant rights to third-party code, pretrained models, or data; applicable third-party terms continue to apply. The raw snapshot's provenance and redistribution permissions remain to be confirmed.
