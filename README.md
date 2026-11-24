@@ -1,68 +1,140 @@
-# Railway report classification: temporal reproducibility materials
+# Railway accident report classification
 
-This repository supports retrospective classification of an adapted three-category accident index using narratives and structured fields. It does not establish official severity grades, prospective prediction or a significant overall advantage for gated fusion.
+This repository contains the code, incident-cohort definitions, chronological splits, and saved predictions for **Chronological evaluation of gated fusion for railway accident report classification**. The study compares text-only RoBERTa, representation concatenation, and Vector Calibration Fusion (VCF) for retrospective classification of completed railway accident reports.
 
-## Software author
+VCF uses a structured representation to attend to narrative tokens and applies a dimension-specific gated correction to concatenated structured and textual summaries. The target is an adapted three-category composite index of reported accident consequences. It is not a validated official severity grade or a prospectively evaluated accident forecast.
 
-**Bilal Rafique**, PhD Scholar, Computer Science, Southwest Jiaotong University. Contact: bilalrafique@my.swjtu.edu.cn. See [AUTHORS.md](AUTHORS.md) for affiliations and original-code attribution.
+## Study data and chronological partitions
 
-## Evidence
-The final held-out cohort contains 8,935 cases dated 2021–2025 as available in the supplied extract. Three-seed test macro-F1: text-only 0.818549 ± 0.002492; concatenation 0.817544 ± 0.004510; gated 0.819326 ± 0.002918 (sample SD). All runs and predictions are included. The test period has now been evaluated; subsequent work must not describe it as an untouched holdout.
+The incident cohort is derived from an archived Federal Railroad Administration (FRA) Form 54 extract. Incident grouping, overlap-bound label checks, and cross-period filtering of recognized repeated narratives yield 114,907 retained incidents.
 
-A repository is supporting reproducibility evidence, not proof of scientific validity or journal acceptance.
+| Partition | Incident years | Incidents |
+|---|---|---:|
+| Training | 1982–2017 | 99,784 |
+| Validation | 2018–2020 | 6,188 |
+| Test | Available 2021–2025 records | 8,935 |
 
-## Repository contents
+The completeness of the available 2025 records is unknown. Cross-period narrative filtering retains incidents in each recognized component's latest represented partition; it does not remove every repeated narrative within that partition.
 
-| Path | Contents |
-|---|---|
-| `src/` | Preparation, models, and evaluation |
-| `results/` | Predictions, metrics, protocols, and splits |
-| `data/` | Cohort candidates and snapshot metadata |
-| `environment/` | Collected package versions |
-| `scripts/` | Saved-result verification |
+![Incident cohort construction and chronological partitions](figures/cohort_flow.png)
 
-## Raw snapshot setup
+Figure files: [vector PDF](figures/cohort_flow.pdf) and [editable TikZ source](figures/source/Figure_1_Cohort.tex).
 
-The CSV/JSONL files are already extracted. No restoration script is required.
+## Saved test results
+
+The neural results below are means and sample standard deviations across seeds 62, 63, and 64. Macro-F1 uses the zero-to-one scale.
+
+| Configuration | Mean macro-F1 | Sample SD |
+|---|---:|---:|
+| Text-only RoBERTa | 0.818549 | 0.002492 |
+| Concatenation | 0.817544 | 0.004510 |
+| VCF | 0.819326 | 0.002918 |
+
+The mean VCF-minus-text difference is **0.078 percentage points**, with a paired component-bootstrap 95% interval of **−0.344 to 0.480 percentage points**. This post-test interval conditions on the fitted models and recognized narrative components; it excludes retraining uncertainty and does not establish equivalence. The results provide limited evidence of a consistent aggregate benefit from structured fusion under the evaluated training budget.
+
+All thirteen final prediction files, covering four classical baselines and nine neural runs, are in [`results/final/`](results/final/). Summaries and post-test analyses are in [`analysis/v14/`](analysis/v14/). The 2021–2025 test records have been evaluated and should not be described as an untouched holdout in subsequent work.
+
+## Verify saved results on a CPU
+
+Verification does not require the raw CSV, PyTorch, model checkpoints, pretrained weights, or a GPU. Use a separate environment; Python 3.10 is recommended for the pinned verification dependencies.
+
+Create and activate the environment using the commands for your terminal.
+
+**Windows PowerShell**
+
+```powershell
+py -3.10 -m venv .venv
+.\.venv\Scripts\Activate.ps1
+```
+
+**Linux or macOS**
+
+```bash
+python3.10 -m venv .venv
+source .venv/bin/activate
+```
+
+Then run from the repository root:
+
+```bash
+python -m pip install -r requirements-verify.txt
+python scripts/verify_results.py
+```
+
+The expected final line is:
+
+```text
+PASS: all 13 final prediction files
+```
+
+The script checks common incident identities, labels, probability consistency, confusion matrices, macro-F1, and accuracy. Recalculating saved predictions is distinct from replaying checkpoints or reproducing training.
+
+## Reproduce the post-test analyses
+
+See [`analysis/v14/README.txt`](analysis/v14/README.txt) for the audit definitions. From the repository root:
+
+```bash
+python analysis/v14/summarize_final.py --repo . --out work/summary_v14
+python analysis/v14/audit_target.py --repo . --raw-zip datanew_snapshot.zip --out work/target_audit_v14
+```
+
+Use a new output directory for the target audit. The summary uses NumPy and saved predictions; the target audit uses the standard library and the archived raw ZIP. These commands do not train models or modify archived predictions. Keyword matches can include negation or vague wording and do not prove disclosure of a target category.
+
+Key archived outputs:
+
+- [Final model summary](analysis/v14/results/final_summary.csv)
+- [Conditional bootstrap estimate](analysis/v14/results/bootstrap.json)
+- [Target and narrative audit](analysis/v14/results/audit.json)
+- [Severity-criterion counts](analysis/v14/results/label_triggers.csv)
+- [Narrative-wording counts](analysis/v14/results/mention_summary.csv)
+
+## Training and evaluation reproduction
+
+See [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md) for the full workflow and its verification boundaries. The recorded experiment used Python 3.8.20, PyTorch 2.0.0+cu118, Transformers 4.46.3, and scikit-learn 1.3.2 on an RTX 4090 with 24 GB memory.
+
+[`requirements.txt`](requirements.txt) records the core experiment dependencies. [`environment/pip-freeze.txt`](environment/pip-freeze.txt) contains the collected package list; it is not a complete environment lockfile. PyTorch and the RoBERTa model files require separate setup. The maintained scripts and the structured-model modules are already included under [`src/`](src/), including [`src/original_model/`](src/original_model/).
+
+Fresh training is stochastic and is not required to reproduce the archived scores exactly. Independent checkpoint replay, full training reproduction, comparative runtime measurements, and isolated component-ablation benefits have not been established by the saved-result verification.
+
+## Data snapshot and provenance
+
+The raw CSV is currently tracked in [`datanew_snapshot.zip`](datanew_snapshot.zip). Cohort metadata and duplicate-component records are already present under [`data/`](data/). To extract the CSV from a Bash terminal:
 
 ```bash
 mkdir -p data/raw
 unzip -n datanew_snapshot.zip -d data/raw
 ```
 
-## Verify saved results without training
-Install numpy and scikit-learn, then run:
+The exact raw file is identified in [`data/raw_snapshot.json`](data/raw_snapshot.json):
 
-```bash
-python scripts/verify_results.py
+```text
+datanew.csv
+158,327,293 bytes
+SHA-256: 9271f04027d907ae9c47d1de2d38a1b1ddf4eb64fcae177b9f62faa21be02e19
 ```
 
-## Reproduce training
-The original environment used Python 3.8.20, torch 2.0.0+cu118, transformers 4.46.3 and sklearn 1.3.2 on an RTX 4090. See requirements.txt and the collected environment/pip-freeze.txt. Install PyTorch separately using its official matching wheel source. The repository does not install anything into a shared environment automatically. GPU runs are not guaranteed bitwise deterministic.
+The upstream reference is the [DOT FRA Form 54 data portal](https://data.transportation.gov/Railroads/Railroad-Equipment-Accident-Incident-Source-Data-F/aqxq-n5hy). The original export date and query were not recorded. A new portal download may differ from this snapshot. The archived hash identifies the study file but does not independently validate the source reports, incident links, or any local additions.
 
-Obtain the exact author-supplied raw snapshot described in data/raw_snapshot.json. Extract datanew.csv into data/raw/. A current live FRA download may differ and must not silently replace the snapshot. Obtain FacebookAI/roberta-base model and tokenizer files in pretrained_models/roberta-base. The published run protocols list the exact pretrained file SHA256 values. No pretrained weights are redistributed here.
+## Repository guide
 
-The original model.py and model_zoo.py must be present in src/original_model after server collection. Do not substitute another architecture. The included historical final evaluator documents the original lab paths; final_evaluate.py uses portable repository-relative paths.
+| Path | Contents |
+|---|---|
+| [`src/`](src/) | Cohort preparation, models, training, and evaluation scripts |
+| [`results/final/`](results/final/) | Thirteen final prediction files, metrics, completion record, and frozen protocol |
+| [`results/development_baselines/`](results/development_baselines/) | Development results and the incident split manifest |
+| [`data/`](data/) | Candidate labels, recognized narrative links, and raw snapshot metadata |
+| [`analysis/v14/`](analysis/v14/) | Post-test target audit, summaries, and conditional uncertainty analysis |
+| [`scripts/`](scripts/) | Saved-prediction verification |
+| [`environment/`](environment/) | Collected environment record |
+| [`figures/`](figures/) | Cohort flowchart and editable source |
+| [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md) | Detailed reproduction instructions |
 
-```bash
-python src/run_baselines.py --raw data/raw/datanew.csv --cohort data/incident_label_candidates.csv --duplicates data/duplicate_narrative_groups.jsonl --out work/baselines --train-cap 1000000 --val-cap 1000000
-python src/finish_logistic.py --source work/baselines --out work/logistic_converged
-for seed in 62 63 64; do
-  python src/neural_run.py --source work/baselines --original src/original_model --plm pretrained_models/roberta-base --out work/seed_$seed --epochs 5 --batch-size 8 --seed "$seed"
-done
-python src/final_evaluate.py --validation-check
-python src/final_evaluate.py
-```
+The root `Railway_GitHub_Ready.zip` is a preparation archive. Use the current repository files and this README for the maintained workflow.
 
-Each command requires a new output directory. The evaluator verifies internal consistency of a reproduction against its own validation records before testing. It does not require a new stochastic training run to equal the authors' scores. It preserves all three seeds and evaluates every comparator. Published exact predictions remain in results/.
+## Attribution, citation, and licensing
 
-## Data lineage
-Included cohort candidates and duplicate groups permit rebuilding the exact input split from the raw snapshot. Source scripts for identity grouping, labels, input audit and preprocessing are included under src/railway_*. Their command-line help describes inputs. These audit stages document assumptions and exclusions and are distinct from the prediction-verification path. results/development_baselines/split_manifest.csv records the published partition assignment.
+**Repository maintainer:** Bilal Rafique, PhD Scholar, Computer Science, Southwest Jiaotong University. Contact: bilalrafique@my.swjtu.edu.cn. [`AUTHORS.md`](AUTHORS.md) records affiliations and code attribution; [`CITATION.cff`](CITATION.cff) provides the current software citation. Manuscript author order and the complete paper citation require author agreement.
 
-## Data and rights
-The official DOT Form 54 public-data portal is the upstream reference. The local snapshot was supplied by a coauthor; its original export query/date were not documented. Public availability of the source does not prove that every local field is unchanged. Verify provenance before releasing the raw snapshot. The raw snapshot is included as `datanew_snapshot.zip`. Keep the repository private until redistribution and licensing are settled.
+The repository is publicly accessible. A software license has not yet been agreed, and the authors still need to confirm the data-redistribution status. No blanket code or data license is asserted here. Pretrained model weights are not redistributed in this repository.
 
-No blanket license is assigned to coauthor code or third-party data in this preparation. The authors must select the code license and confirm rights before claiming unrestricted reuse. Retain applicable third-party notices. A public repository without an explicit code license is not a complete open-source release.
-
-## Citation and release
-The manuscript is not yet published; no paper DOI or acceptance is claimed. After publication, add the complete author-approved citation and paper DOI. Cite a tagged repository release and commit SHA; archive the release with a DOI if available. Do not insert a hypothetical URL into the manuscript. Record a release only after all files and the verification command are checked on GitHub.
+When reporting a reproduction, record the exact commit and the data snapshot hash. The archived experiment and post-test analysis reviewed here are at commit `2e5f42c9429c92847fbe9b66b69cb61b562204bd`.

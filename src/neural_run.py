@@ -27,7 +27,7 @@ class Reports(Dataset):
 
 def main(a):
     if a.out.exists():raise ValueError('Output exists; use a fresh directory')
-    if not a.plm.is_dir():raise ValueError('Local pretrained model missing; run fetch_roberta.py first')
+    if not a.plm.is_dir():raise ValueError('Local pretrained model missing; download the RoBERTa model and tokenizer files to the --plm directory as described in docs/REPRODUCIBILITY.md')
     source=a.source
     protocol=json.loads((source/'protocol.json').read_text())
     completion=json.loads((source/'completion.json').read_text())

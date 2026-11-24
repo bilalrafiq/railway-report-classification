@@ -5,6 +5,8 @@ import numpy as np
 from sklearn.metrics import accuracy_score,f1_score,confusion_matrix
 root=Path(__file__).resolve().parents[1];d=root/'results/final';m=json.loads((d/'metrics.json').read_text());c=json.loads((d/'completion.json').read_text())
 assert hashlib.sha256((d/'metrics.json').read_bytes()).hexdigest()==c['metrics_sha256']
+expected={'majority','structured_logistic','text_tfidf_logistic','feature_fusion_logistic'} | {f'{mode}_seed{seed}' for mode in ('text','concat','gated') for seed in (62,63,64)}
+assert set(m)==expected, 'Unexpected model set: missing=%s; extra=%s' % (sorted(expected-set(m)), sorted(set(m)-expected))
 ref=None
 for name,v in m.items():
  with (d/(name+'_predictions.csv')).open() as f:r=list(csv.DictReader(f))

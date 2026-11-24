@@ -10,3 +10,26 @@ pretrained_models/
 data/raw/
 work/
 release_assets/
+
+# Operating-system and editor metadata.
+.DS_Store
+Thumbs.db
+Desktop.ini
+.vscode/
+.idea/
+.ipynb_checkpoints/
+*.swp
+*.swo
+*~
+
+# LaTeX auxiliary files; keep editable sources, PDFs, and numerical results.
+*.aux
+*.blg
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.toc
+*.lof
+*.lot
+figures/source/*.log
+figures/source/*.out
